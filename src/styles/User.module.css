@@ -1,0 +1,15 @@
+.user {
+        background-color: cyan;
+        margin:20px auto;
+        width: 70%;
+        padding:30px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid navy; 
+        border-radius: 5px;
+}
+
+.btn {
+    background-color: blueviolet;
+}
