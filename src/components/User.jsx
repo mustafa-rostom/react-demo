@@ -1,4 +1,5 @@
 // import { useEffect } from 'react'
+import { useCallback } from 'react'
 import propTypes from 'prop-types'
 // import '../styles/User.css'
 import classes from '../styles/User.module.css'
@@ -16,10 +17,10 @@ const User=(props)=>{
     // },[])
     // console.log('RENDER');
 
-    const handleClick=(e)=>{
+    const handleClick=useCallback((e)=>{
         console.log(e);
         onIncrement(id);
-    };
+    },[id,onIncrement])
     return (
     <div className={classes.user}>
         <div>
