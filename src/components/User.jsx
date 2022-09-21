@@ -8,18 +8,18 @@ import classes from '../styles/User.module.css'
 const User=(props)=>{
     const {name,age,id,onIncrement}=props
     useEffect(()=>{
-        console.log('EVERY RENDER')
+        // console.log('EVERY RENDER')
     })
 
     //simulate componentDidMount 
     useEffect(()=>{
-        console.log('FIRST MOUNT ONLY')
+        // console.log('FIRST MOUNT ONLY')
     },[])
-    console.log('RENDER');
+    // console.log('RENDER');
 
 // useCalback hook 
     const handleClick=useCallback((e)=>{
-        console.log(e);
+        // console.log(e);
         onIncrement(id);
     },[id,onIncrement])
     return (

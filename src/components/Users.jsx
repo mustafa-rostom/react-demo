@@ -1,6 +1,6 @@
 import React from 'react';
 import User from './User'
-import { useState, } from 'react';
+import { useState,useMemo } from 'react';
 import { v4 as uuid } from "uuid";
 import AddNewUser from "./AddNewUser";
 import  useToggle  from '../hooks/useToggle'
@@ -43,7 +43,17 @@ const Users = () => {
         setUsers(currentUsers=> ([...currentUsers,{...user,age:+user.age,id:uuid()}]))
     }
 
-    const usersAboveThirty = users.filter(user=>user.age>30).length
+    // const usersAboveThirty = users.filter(user=>{
+    //     console.log('RECALCULATION');
+    // return user.age > 30;
+    // }).length
+    const usersAboveThirty=useMemo(()=>{
+        return users.filter(user=>{
+        console.log('RECALCULATION');
+        return user.age > 30;
+    }).length
+    },[users]);
+
     return (
     <>
     <AddNewUser addUser={addUser} isEnabled={isEnabled} /> 
