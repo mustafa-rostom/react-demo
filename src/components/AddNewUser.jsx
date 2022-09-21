@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 
 const AddNewUser = (props) => {
-    const{addUser} =props
+    const{addUser , isEnabled} =props
     const [user,setUser]= useState({name:'',age:''})
     const handleChange=(e)=>{
         const {name,value}=e.target
@@ -17,7 +17,7 @@ const AddNewUser = (props) => {
     <form onSubmit={handleSubmit}>
         <input type="text" name="name" value={user.name} onChange={handleChange}/>
         <input type="number" name="age" value={user.age} onChange={handleChange  } />
-        <input type="submit" value='Add User'  />
+        <input type="submit" value='Add User' disabled={!isEnabled} />
     </form>
     );
 };

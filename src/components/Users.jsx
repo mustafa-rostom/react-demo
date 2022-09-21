@@ -1,12 +1,13 @@
 import React from 'react';
 import User from './User'
-import { useState,useMemo } from 'react';
+import { useState, } from 'react';
 import { v4 as uuid } from "uuid";
 import AddNewUser from "./AddNewUser";
-
+import  useToggle  from '../hooks/useToggle'
 
 const Users = () => {
-    console
+    const [isEnabled,toggle]=useToggle()
+
     const [users,setUsers] = useState([
     {
         id: uuid(),
@@ -45,13 +46,17 @@ const Users = () => {
     const usersAboveThirty = users.filter(user=>user.age>30).length
     return (
     <>
-    <AddNewUser addUser={addUser} /> 
+    <AddNewUser addUser={addUser} isEnabled={isEnabled} /> 
         <div>
         {users.map((user) => (
             <User key={user.id} {...user} onIncrement={incrementUserAge} />
         ))}
         </div>
         <div>Total Number of users that have more than 30 years is {usersAboveThirty}</div>
+        <button onClick={toggle}>{isEnabled? 'Disable':'Enable'}</button>
+        {/* condtional rendering */}
+        {isEnabled && <div>Enabled</div>} 
+        
     </>
     );
 };
