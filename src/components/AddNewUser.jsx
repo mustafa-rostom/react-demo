@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 const AddNewUser = (props) => {
     const{addUser , isEnabled} =props
@@ -13,6 +13,12 @@ const AddNewUser = (props) => {
         addUser(user)
         setUser({name:"",age:''})
     }
+    useEffect(()=>{
+        if(!isEnabled){
+            setUser({name:'',age:''})
+        }
+    },[isEnabled])
+
     return (
     <form onSubmit={handleSubmit}>
         <input type="text" name="name" value={user.name} onChange={handleChange}/>

@@ -6,7 +6,7 @@ import AddNewUser from "./AddNewUser";
 import  useToggle  from '../hooks/useToggle'
 
 const Users = () => {
-    const [isEnabled,toggle]=useToggle()
+    const [isEnabled,toggle]=useToggle(true)
 
     const [users,setUsers] = useState([
     {
@@ -47,6 +47,8 @@ const Users = () => {
     //     console.log('RECALCULATION');
     // return user.age > 30;
     // }).length
+
+    // useMemo hook
     const usersAboveThirty=useMemo(()=>{
         return users.filter(user=>{
         console.log('RECALCULATION');
