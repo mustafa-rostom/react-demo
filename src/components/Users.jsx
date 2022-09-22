@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import User from './User'
 import { useState,useMemo } from 'react';
 import { v4 as uuid } from "uuid";
@@ -40,6 +40,7 @@ const Users = () => {
     
     }
     const addUser=(user)=>{
+        localStorage.setItem('user',JSON.stringify(user))
         setUsers(currentUsers=> ([...currentUsers,{...user,age:+user.age,id:uuid()}]))
     }
 
@@ -55,6 +56,12 @@ const Users = () => {
         return user.age > 30;
     }).length
     },[users]);
+    // useEffect to cleanup when the component unamount 
+    useEffect(()=>{
+        return()=>{
+            localStorage.removeItem('user')
+        }
+    },[])
 
     return (
     <>
