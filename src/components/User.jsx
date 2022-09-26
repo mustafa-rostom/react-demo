@@ -33,7 +33,7 @@ const User=(props)=>{
 }
 
 User.propTypes={
-    id:propTypes.string.isRequired,
+    id:propTypes.number .isRequired,
     name:propTypes.string,
     age:propTypes.number,
     onIncrement:propTypes.func.isRequired
