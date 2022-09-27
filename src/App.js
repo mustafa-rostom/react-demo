@@ -4,6 +4,7 @@ import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Task from './pages/Task.jsx'
 import Users from "./pages/Users.jsx"
+import User from "./pages/User.jsx";
 import AddUser from "./pages/AddUser.jsx";
 
 import './App.css'
@@ -18,7 +19,8 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="task" element={<Task />} />
           <Route path="users" element={<Users />} />
-          <Route path="users/add" element={<AddUser />} />
+          <Route path="users/:id" element={<User />} />
+          <Route path="users/add" element={<AddUser />}/>
           {/* add no match path */}
           <Route path="*" element={<div>404 - Not Found </div>} />
         </Routes>
