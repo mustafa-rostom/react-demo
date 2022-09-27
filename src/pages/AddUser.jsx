@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {UserContext} from '../App.js'
+import {UserContext} from '../modules/UsersModule'
 import AddNewUser from "../components/AddNewUser";
 
 const AddUserPage = () => {

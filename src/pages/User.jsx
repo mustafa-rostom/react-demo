@@ -1,7 +1,7 @@
 import { useContext,useState,useEffect } from 'react'
 import  User  from '../components/User'
 import { useParams } from 'react-router-dom'
-import{ UserContext } from '../App'
+import{ UserContext } from '../modules/UsersModule'
 
 
 const UserPage = () => {
