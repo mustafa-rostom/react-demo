@@ -1,11 +1,24 @@
+import { useContext,useState,useEffect } from 'react'
 import  User  from '../components/User'
 import { useParams } from 'react-router-dom'
+import{ UserContext } from '../App'
+
+
 const UserPage = () => {
+    const[user,setUser]=useState({})
     const {id}=useParams();
-    console.log(id);
+    const {users}= useContext(UserContext)
+
+    useEffect(() => {
+    if (users?.length) {
+        setUser(users.find((u) => u.id === +id));
+    }
+    }, [id, users]);
+
+    console.log(user);
     return (
-        <User id={+id} name='mustafa' age={25} />
+        <User {...user} />
     );
 };
 
-export default UserPage;
+export default UserPage; 
