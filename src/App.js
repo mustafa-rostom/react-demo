@@ -12,13 +12,15 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="task" element={<Task />} />
           <Route path="users" element={<Users />} />
           <Route path="users/add" element={<AddUser />} />
+          {/* add no match path */}
+          <Route path="*" element={<div>404 - Not Found </div>} />
         </Routes>
       </BrowserRouter>
     </div>
