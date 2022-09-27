@@ -7,7 +7,7 @@ import User from "../pages/User";
 import Users from "../pages/Users";
 import AddUser from "../pages/AddUser";
 
-
+// add context api
 export const UserContext = createContext();
 const UsersModule = () => {
     const [isEnabled, toggle] = useToggle(true);
